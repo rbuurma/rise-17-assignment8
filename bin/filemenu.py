@@ -7,20 +7,21 @@ def list_files(folder):
     print("Here are the files in the text folder:")
     txt_files = []
     all_files = sorted(listdir(folder))
-    for i in range(len(all_files)):
-        file = all_files[i]
+    j = 0
+    for file in all_files:
         if file.endswith('.txt'):
-            print('[%2d] %s' % (i, file))
+            print('[%2d] %s' % (j, file))
+            j += 1
             txt_files.append('%s/%s' % (folder, file))
     print()
     return txt_files
 
 def menu_selection(choices, prompt):
-    """ Present the user with a prompt asking for a choice from a 
+    """ Present the user with a prompt asking for a choice from a
     list of choices verify that the selection is correct. Expects
     a numerical input.
     """
-    valid = False    
+    valid = False
     while not valid:
         choice = input(prompt)
         if not choice.isdigit():
